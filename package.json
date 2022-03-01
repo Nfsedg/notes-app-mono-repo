@@ -1,0 +1,44 @@
+{
+  "name": "notes-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "note app",
+  "workspaces": [
+    "api",
+    "app"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build --workspace=app",
+    "start": "npm run start --workspace=api",
+    "dev:api": "npm run build && npm run dev --workspace=api"
+  },
+  "keywords": [],
+  "author": "Edgar Pech <edgaropech@hotmail.com>",
+  "license": "MIT",
+  "eslintConfig": {
+    "env": {
+      "cypress/globals": true,
+      "node": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:jest-dom/recommended",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "plugins": [
+      "cypress"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "8.8.0",
+    "eslint-plugin-cypress": "^2.12.1"
+  },
+  "proxy": "http://localhost:3005"
+}
